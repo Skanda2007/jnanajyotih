@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import os
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
 CORS(app)
@@ -34,6 +36,10 @@ def chat():
 def get_conversations():
     conversations = list(conversations_collection.find({}, {"_id": 0}))
     return jsonify(conversations)
+
+@app.route("/", methods=["GET"])
+def home():
+    return "Welcome to Sanskrit AI API!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
