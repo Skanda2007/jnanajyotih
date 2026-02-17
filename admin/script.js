@@ -1,31 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadStats();
-    loadConversations();
+    loadRecentPayments();
 });
 
 function loadStats() {
-    // Placeholder for loading statistics
-    const statsContainer = document.getElementById('stats-container');
-    statsContainer.innerHTML = '<p>Statistics will be displayed here.</p>';
+    const stats = [
+        { title: 'Team Payments', value: '$5,839' },
+        { title: 'Savings', value: '$5,839' },
+        { title: 'Income Statistics', value: 'Graph Placeholder' }
+    ];
+
+    const statsContainer = document.querySelector('.stats');
+    statsContainer.innerHTML = '';
+
+    stats.forEach(stat => {
+        const statCard = document.createElement('div');
+        statCard.classList.add('stat-card');
+        statCard.innerHTML = `
+            <h3>${stat.title}</h3>
+            <p>${stat.value}</p>
+        `;
+        statsContainer.appendChild(statCard);
+    });
 }
 
-function loadConversations() {
-    fetch('http://localhost:5000/api/conversations')
-        .then(response => response.json())
-        .then(data => {
-            const conversationsContainer = document.getElementById('conversations-container');
-            conversationsContainer.innerHTML = '';
-            data.forEach(conversation => {
-                const convoDiv = document.createElement('div');
-                convoDiv.classList.add('conversation');
-                convoDiv.innerHTML = `
-                    <p><strong>User:</strong> ${conversation.user_message}</p>
-                    <p><strong>Bot:</strong> ${conversation.bot_response}</p>
-                `;
-                conversationsContainer.appendChild(convoDiv);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching conversations:', error);
-        });
+function loadRecentPayments() {
+    const payments = [
+        { name: 'Emma Ryan', amount: '$4,623', status: 'Pending', date: 'Feb 10th, 2023' },
+        { name: 'Adrian Dorne', amount: '$3,127', status: 'Completed', date: 'Feb 9th, 2023' },
+        { name: 'Rosanne Hills', amount: '$2,790', status: 'Pending', date: 'Feb 8th, 2023' }
+    ];
+
+    const paymentsTable = document.querySelector('.recent-payments tbody');
+    paymentsTable.innerHTML = '';
+
+    payments.forEach(payment => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${payment.name}</td>
+            <td>${payment.amount}</td>
+            <td>${payment.status}</td>
+            <td>${payment.date}</td>
+        `;
+        paymentsTable.appendChild(row);
+    });
 }

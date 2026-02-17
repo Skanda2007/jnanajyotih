@@ -8,24 +8,81 @@
 </head>
 <body>
     <div class="admin-container">
-        <header class="admin-header">
-            <h1>Admin Dashboard</h1>
-        </header>
-        <main class="dashboard">
-            <section class="stats">
-                <h2>Statistics</h2>
-                <div id="stats-container">
-                    <!-- Stats will be dynamically loaded here -->
+        <aside class="admin-sidebar">
+            <h2>Veritas</h2>
+            <nav>
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Accounts</li>
+                    <li>Statistics</li>
+                    <li>Marketing</li>
+                    <li>Development</li>
+                </ul>
+            </nav>
+            <div class="admin-settings">
+                <ul>
+                    <li>Settings</li>
+                    <li>Log Out</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Analytics</h1>
+                <div class="admin-profile">
+                    <img src="profile.jpg" alt="Profile Picture">
                 </div>
-            </section>
-            <section class="conversations">
-                <h2>User Conversations</h2>
-                <div id="conversations-container">
-                    <!-- Conversations will be dynamically loaded here -->
+            </header>
+            <section class="admin-dashboard">
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Team Payments</h3>
+                        <p>$5,839</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Savings</h3>
+                        <p>$5,839</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Income Statistics</h3>
+                        <p>Graph Placeholder</p>
+                    </div>
+                </div>
+                <div class="recent-payments">
+                    <h2>Recently Payments</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Emma Ryan</td>
+                                <td>$4,623</td>
+                                <td>Pending</td>
+                                <td>Feb 10th, 2023</td>
+                            </tr>
+                            <tr>
+                                <td>Adrian Dorne</td>
+                                <td>$3,127</td>
+                                <td>Completed</td>
+                                <td>Feb 9th, 2023</td>
+                            </tr>
+                            <tr>
+                                <td>Rosanne Hills</td>
+                                <td>$2,790</td>
+                                <td>Pending</td>
+                                <td>Feb 8th, 2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
